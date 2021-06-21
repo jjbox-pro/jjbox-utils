@@ -90,7 +90,11 @@ Utils.prototype.terminateProcessAfterPress = function(){
 };
 
 
-Utils.prototype.removeDir = function(dir) {
+Utils.prototype.getFileName = function(filePath){
+	return path.basename(filePath);
+};
+
+Utils.prototype.removeDir = function(dir){
 	if( dir[dir.length-1] != '/' )
 		dir += '/';
 	
