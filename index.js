@@ -176,6 +176,20 @@ Utils.prototype.writeFile = function(filePath, text){
 	fs.writeFileSync(filePath, text);
 }
 
+Utils.prototype.saveFile = function(filePath, text){
+	let filePathArr = filePath.split('/'),
+		path = '',
+		fileName = filePathArr.pop();
+	
+	for(var folder of filePathArr){
+		path += folder + '/';
+		
+		utils.makeDir(path);
+	}
+	
+	utils.writeFile(filePath, text);
+}
+
 Utils.prototype.writeLog = function(filePath, text){
 	utils.makeDir('log');
 	
