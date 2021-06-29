@@ -206,7 +206,7 @@ Utils.prototype.appendFile = function(filePath, text){
 
 Utils.prototype.readFile = function(filePath){
 	try{
-		return fs.readFileSync(filePath).toString();;
+		return utils.readFileAsBuffer(filePath).toString();
 	}
 	catch(e){
 		console.error('Error: ', e);
@@ -214,6 +214,17 @@ Utils.prototype.readFile = function(filePath){
 		throw e;
 	}
 };
+
+	Utils.prototype.readFileAsBuffer = function(filePath){
+		try{
+			return fs.readFileSync(filePath);
+		}
+		catch(e){
+			console.error('Error: ', e);
+			
+			throw e;
+		}
+	};
 
 Utils.prototype.copyFile = function (filePath, distPath){
 	try{
