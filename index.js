@@ -123,6 +123,10 @@ Utils.prototype.isDirExist = function(dir){
 	return fs.existsSync(dir);
 };
 
+Utils.prototype.isFileExist = function(filePath){
+	return fs.existsSync(filePath);
+};
+
 Utils.prototype.makeDir = function(dir){
 	dir = dir.replace(/(\/|\\)$/, '');
 	
